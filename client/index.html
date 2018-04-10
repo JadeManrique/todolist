@@ -13,6 +13,7 @@
   <link rel="icon" href="client/img/globe.png">
   <link rel="stylesheet" href="client/css/styles.css?v=1.0">
   <script src="js/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
@@ -33,13 +34,25 @@
   </div>
   
   <script>
-  /*global $*/
-  $('#submit').click(function () {
-    var text = $('#input').val();
-    var note = {note: text};
-    console.log(JSON.stringify(note));
-    $.post('https://todolist-osteoecstasy.c9users.io:8080/submitNote', note);
+  /*global $ io */
+  var socket = io();
+  socket.on('message', function (data) {
+    console.log(data);
   });
+  
+  var text = $('#input').val();
+    var note = {note: text};
+  
+  $('#submit').click(function () {
+    text = $('#input').val();
+    note = {notes: text};
+    sendToServer(note);
+  });
+  
+  function sendToServer(sendData) {
+    $.post('https://todolist-osteoecstasy.c9users.io/submitNote', sendData);
+  }
+  
   </script>
 
 </body>

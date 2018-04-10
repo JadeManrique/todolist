@@ -17,6 +17,7 @@ h1 {
 
 #output {
     margin: 15px auto;
+    border-radius: 15px;
     width: 400px;
     height: 100px;
     background-color: black;
