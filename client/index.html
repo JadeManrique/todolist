@@ -5,22 +5,41 @@
 <head>
   <meta charset="utf-8">
 
-  <title> Lottery vs Reality </title>
-  <meta name="description" content="Basic Description">
+  <title> To Do List </title>
+  <meta name="description" content="A Basic To-Do List">
   <meta name="author" content="Jade Manrique">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="img/globe.png">
-  <link rel="stylesheet" href="css/reset.css?v=1.0">
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <script src="scripts/jquery-3.3.1.min.js"></script>
-  <script src="scripts/scripts.js"></script>
+  <link rel="icon" href="client/img/globe.png">
+  <link rel="stylesheet" href="client/css/styles.css?v=1.0">
+  <script src="js/jquery.min.js"></script>
 </head>
 
 <body>
   
-  <script>
+  <h1>Create New Note</h1>
+  
+  <div class="noteForm">
+  <form>
+    <textarea id="input"></textarea>
+  </form>
+  <button id="submit"> Save Note </button>
+  </div>
+  
+  <h1>Notes</h1>
+  
+  <div id="output">
     
+  </div>
+  
+  <script>
+  /*global $*/
+  $('#submit').click(function () {
+    var text = $('#input').val();
+    var note = {note: text};
+    console.log(JSON.stringify(note));
+    $.post('https://todolist-osteoecstasy.c9users.io:8080/submitNote', note);
+  });
   </script>
 
 </body>

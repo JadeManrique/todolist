@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
+
+body {
+    background-color: red;
+}
+
+h1 {
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.noteForm {
+    display: block;
+    text-align: center;
+}
+
+#output {
+    margin: 15px auto;
+    width: 400px;
+    height: 100px;
+    background-color: black;
+    text-align: center;
+}
